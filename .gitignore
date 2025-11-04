@@ -1,0 +1,10 @@
+mgpt_env/
+mgpt-2025.log
+__pycache__/
+**/__pycache__/
+*.pyc
+log/
+dataset/
+saved/
+log_tensorboard/
+*.log

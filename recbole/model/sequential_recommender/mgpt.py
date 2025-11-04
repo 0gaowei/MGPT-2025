@@ -39,6 +39,10 @@ class MGPT(SequentialRecommender):
         self.enable_ms = config['enable_ms']
         self.dataset = config['dataset']
 
+        # Adapt to different field names: item_type_list or action_type_list
+        # self.item_type_field = config.get('ITEM_TYPE_FIELD', 'item_type')
+        # self.item_type_list_field = self.item_type_field + config['LIST_SUFFIX']
+        # self.buy_type = dataset.field2token_id[self.item_type_list_field]['0']
         self.buy_type = dataset.field2token_id["item_type_list"]['0']
 
         # load dataset info
@@ -267,6 +271,8 @@ class MGPT(SequentialRecommender):
         item_seq = interaction[self.ITEM_SEQ]
         session_id = interaction['session_id']
         item_type = interaction["item_type_list"]
+        # session_id = interaction[self.uid_field]
+        # item_type = interaction[self.item_type_list_field]
         last_buy = interaction["item_id"]
         masked_item_seq, pos_items, masked_index, item_type_seq = self.reconstruct_train_data(item_seq, item_type,
                                                                                               last_buy)

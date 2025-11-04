@@ -25,6 +25,8 @@ if __name__ == '__main__':
     # configurations initialization
     config_dict = {
         'USER_ID_FIELD': 'session_id',  # 'session_id'
+        # 'USER_ID_FIELD': 'user_id',  # Adapted to existing dataset format
+        # 'ITEM_TYPE_FIELD': 'action_type',  # Map action_type to item_type
         'load_col': None,
         # 'neg_sampling': {'uniform':1},
         'neg_sampling': None,
